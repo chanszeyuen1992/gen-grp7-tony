@@ -1,0 +1,338 @@
+body {
+    margin: 0%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+header{
+    background-color: #c7edf1; 
+    padding: 10px 5px; 
+    margin:0%;
+}
+
+footer {
+    background-color: #c9f0f5;
+    height: 100px;
+}
+
+#item {
+    background-color: #75E6DA;
+    height: 223px;
+    border-style: solid;
+}
+
+.login-bg {
+    display: none;
+    opacity: 0;
+}
+
+.login-bg:target {
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    position: absolute;
+    left: auto;
+    top: 0%;
+    background-color: rgba(133, 133, 133, 0.384);
+}
+
+#login-form {
+    background-color: #81B622;
+    display: flex;
+    width: fit-content;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 30px 30px 30px;
+    max-width: 300px;
+    z-index: 10001;
+}
+
+#login-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#login-form form .contianer {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 24px 32px 24px;
+}
+
+#login-form form .contianer input {
+    width: 200px;
+    height: 20px;
+}
+
+#login-form form .contianer label {
+    width: 32px;
+}
+
+#login-form h1 {
+    margin: 0 auto 16px auto;
+}
+
+#login-form .submit-btn {
+    background-color: black;
+    color: cornsilk;
+    margin-bottom: 16px;
+    margin: auto;
+    height: 32px;
+    width: 80px;
+}
+
+#login-form button {
+    background-color: black;
+    color: cornsilk;
+    margin: auto;
+    height: 32px;
+    width: 80px;
+}
+
+#login-form hr {
+    width: 300px;
+    margin: 32px auto;
+}
+
+
+/*Card*/
+.card-custom {
+    width: 100%;
+    height: fit-content;
+    margin: 10px 10px;
+    border-radius: 20px;
+    background-color: rgb(236, 212, 176);
+    display: block;
+    gap: 50px;
+    padding: 30px;
+}
+
+.card-custom .de-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.card-custom .de-btn button{
+    font-size: 24px;
+    padding: 10px;
+    width: 80px;
+}
+
+.card-custom .left-container h1 {
+    margin: 0;
+}
+
+.card-custom .left-container p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-custom .card-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-custom .card-description h2 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.card-custom .card-description p {
+    font-size: 16px;
+    margin: 5px;
+}
+
+.card-custom .center-container {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 18px
+}
+
+.card-custom .center-container label {
+    font-size: 30px;
+}
+
+.card-custom .center-container select {
+    height: 40px;
+}
+
+.card-custom .right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-custom .right-container i {
+    font-size: 35px;
+    margin-left: 100px;
+}
+
+
+
+.card-bg {
+    display: none;
+    opacity: 0;
+    border-radius: 20px;
+    z-index: 3000;
+    background-color: rgb(63, 57, 57);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    margin: auto;
+}
+
+.card-bg:target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 100001;
+    position: absolute;
+    left: auto;
+    background-color: rgba(150, 141, 141, 0.514);
+    right: auto;
+    top: 0;
+    opacity: 1;
+}
+
+.card-bg .card-modal {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px;
+    opacity: 1;
+}
+
+.card-bg .card-modal .card-modal-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-bg .card-modal .card-modal-left .card-modal-btn {
+    display: flex;
+    gap: 40px;
+}
+
+.card-bg .card-modal .card-modal-left .card-modal-btn a {
+    outline: none;
+    font-size: 30px;
+    color: white;
+    height: fit-content;
+    width: fit-content;
+}
+
+.card-bg .card-modal .card-modal-left .card-modal-btn p {
+    border-radius: 10px;
+}
+
+.card-bg .card-modal .card-modal-left .card-modal-btn p :hover {
+    border-radius: 10px;
+    background-color: rgba(80, 80, 80, 0.658);
+}
+
+.card-bg .card-modal .card-modal-left .card-modal-btn .edit {
+    background-color: rgb(59, 201, 59);
+}
+
+.card-bg .card-modal .card-modal-left .card-modal-btn .delete {
+    background-color: rgb(224, 72, 72);
+}
+
+.card-bg .card-modal .card-modal-right {
+    background-color: rgba(128, 128, 128, 0.13);
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+}
+
+.card-bg .card-modal .card-modal-right a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.card-add {
+    width: 100%;
+    height: fit-content;
+    margin: 10px 10px;
+    border-radius: 30px;
+    background-color: rgb(143, 143, 143);
+    border: darkblue solid 5px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px;
+}
+
+.card-add i {
+    font-size: 92px;
+    text-align: center;
+}
+
+.logo {
+    margin: 10px auto;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.side-navbar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #100901;
+    transition: 0.5s;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #ffffff26;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+.active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+.active-cont {
+    margin-left: 180px;
+}
+
+#menu-btn {
+    background-color: #100901;
+    color: #fff;
+}
+
+.my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+}
