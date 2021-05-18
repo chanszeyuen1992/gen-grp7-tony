@@ -203,25 +203,26 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="Task1Modal" tabindex="-1" aria-labelledby="Task1ModalLabel" aria-hidden="true">
+<!-- Edit Modal -->
+<form class="modal fade" id="Task1Modal" tabindex="-1" aria-labelledby="Task1ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-lg-down">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="Task1ModalLabel">Task 1</h5>
+                <input type="text" id="editId" class="modal-title" style="display: none;">
+                <input type="text" id="editName" class="modal-title">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card-modal-left">
-                    <p class="DueDate">Due Date: 2021/04/01</p>
-                    <p class="stutas">Assigned To: Tony</p>
+                    <p class="DueDate">Due Date: <input type="date" id="editDueDate" class="modal-title"></p>
+                    <p class="AssignedTo">Assigned To: <input type="text" id="editAssignedTo" class="modal-title"></p>
                     <div class="card-description">
                         <h2>Description:</h2>
-                        <p>test</p>
+                        <input type="text" id="editDescription" class="modal-title">
                     </div>
                     <div class="center-container">
                         <label for="status">status</label><br>
-                        <select name="status" id="status">
+                        <select name="status" id="editStatus">
                                     <option value="todo">TODO</option>
                                     <option value="in-progress">IN PROGRESS</option> 
                                     <option value="review">REVIEW</option>
@@ -230,14 +231,13 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#AddItemModal">Edit</button>
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Back</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                    <button type="submit" id="editSubmit" class="btn btn btn-success">Edit</button>
+                    <!-- <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Back</button> -->
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 
 <!-- GET Card Modal -->
 <form id="cardSubmit" name="cardSubmit" method="post" action="http://localhost:8080/todolist">

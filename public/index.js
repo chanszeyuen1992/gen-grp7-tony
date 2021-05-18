@@ -4,6 +4,15 @@ function topFunction() {
 }
 const displayArea = document.querySelector('#cardArea');
 
+//edit Modal
+const editId =document.querySelector('#editId')
+const editName = document.querySelector("#editName");
+const editDueDate = document.querySelector("#editDueDate");
+const editAssignedTo = document.querySelector("#editAssignedTo");
+const editDescription = document.querySelector("#editDescription");
+const editStatus = document.querySelector("#editStatus");
+
+const btnEditSubmit = document.querySelector("#editSubmit");
 
 //GET CARD function
 const getCard = async(e) => {
@@ -17,6 +26,7 @@ const getCard = async(e) => {
         <div id="card-section" data-id=${i.id}>
             <div class="card-custom">
                 <div class="de-btn">
+                    <p class="card-id" style="display: none;">${i.id}</p>
                     <button id="del-card" class="btn btn-outline-danger" type="button">
                         <i class="far fa-trash-alt"></i>
                     </button>
@@ -29,18 +39,18 @@ const getCard = async(e) => {
                     <h1 class="card-name">
                         ${i.name}
                     </h1>
-                    <p class="DueDate">Due Date: ${i.duedate}</p>
-                    <p class="status">Assigned To: ${i.assignedto}</p>
+                    <p>Due Date: <span class="DueDate">${i.duedate}</span></p>
+                    <p>Assigned To: <span class="AssignedTo">${i.assignedto}</span></p>
                 </div>
 
                 <div class="card-description">
                     <h2>Description:</h2>
-                    <p>${i.description}</p>
+                    <p class="description">${i.description}</p>
                 </div>
                 
 
                 <div class="center-container">
-                    <h3>${i.status}</h3>    
+                    <h3 class="status">${i.status}</h3>    
                 </div>
 
                 
@@ -86,20 +96,50 @@ displayArea.addEventListener('click', async (e) => {
     let editCardIsPressed = e.target.id == 'edit-card'
 
     let id = e.target.parentElement.parentElement.parentElement.dataset.id
+    let parent = e.target.parentElement.parentElement.parentElement
 
     //Delete the card
     if(delCardIsPressed) {
         const response = await fetch(`http://localhost:8080/todolist/${id}`, {
         method: 'DELETE',
-        // headers: {
-        //     "Content-Type": "application/json",
-        // },
-        // body: JSON.stringify(cardOjb),
     });
     getCard()
     }
 
     if(editCardIsPressed) {
-        
+        const cardDiv = e.target.parentElement.parentElement.parentElement
+        let cardId = cardDiv.querySelector('.card-id').textContent;
+        let cardName = cardDiv.querySelector('.card-name').textContent;
+        let dueDate = cardDiv.querySelector('.DueDate').textContent;
+        let assinedTo = cardDiv.querySelector('.AssignedTo').textContent;
+        let description = cardDiv.querySelector('.description').textContent;
+        let status = cardDiv.querySelector('.status').textContent;
+        //console.log(`${cardName},${dueDate},${assinedTo},${description},${status},`)
+        editId.value = cardId;
+        editName.value = cardName;
+        editDueDate.value = dueDate;
+        editAssignedTo.value = assinedTo;
+        editDescription.value = description;
+        editStatus.value = status;
     }
+    btnEditSubmit.addEventListener('click', async () => {
+        const response = await fetch(`http://localhost:8080/todolist/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: editId.value,
+            name: editName.value,
+            description: editDescription.value,
+            assignedto: editAssignedTo.value,
+            duedate: editDueDate.value,
+            status: editStatus.value
+        })
+    })
+        getCard()
+    })
+    
+
 })
+
